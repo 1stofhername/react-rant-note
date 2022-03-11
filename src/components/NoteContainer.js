@@ -18,9 +18,13 @@ function onNoteClick (note) {
   setDisplayedNote(note);
 }
 
+function handleSearchChange(){
+
+}
+
   return (
     <>
-      <Search />
+      <Search handleSearchChange={handleSearchChange} />
       <div className="container">
         <Sidebar notes={notes} onNoteClick={onNoteClick} />
         <Content notes={notes} displayedNote={displayedNote} />
