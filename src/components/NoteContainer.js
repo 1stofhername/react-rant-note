@@ -3,8 +3,10 @@ import Search from "./Search";
 import Sidebar from "./Sidebar";
 import Content from "./Content";
 
+function NoteContainer () {
+  const [notes, setNotes] = useState([]);
 
-
+  
   return (
     <>
       <Search />
