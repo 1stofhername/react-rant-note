@@ -5,7 +5,8 @@ import Content from "./Content";
 
 function NoteContainer () {
   const [notes, setNotes] = useState([]);
-  const [displayedNote, setDisplayedNote]=useState();
+  const [displayedNote, setDisplayedNote]=useState("");
+  const [searchBy, setSearchBy] = useState("");
   
   useEffect(()=>{
     fetch('http://localhost:3000/notes')
