@@ -1,9 +1,9 @@
 import React from "react";
 
-function Search() {
+function Search({ handleSearchChange }) {
   return (
     <div className="filter">
-      <input id="search-bar" type="text" placeholder="Search Notes" />
+      <input id="search-bar" type="text" placeholder="Search Notes" onChange={(e)=>handleSearchChange(e)} />
     </div>
   );
 }

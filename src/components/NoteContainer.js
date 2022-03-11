@@ -6,7 +6,7 @@ import Content from "./Content";
 function NoteContainer () {
   const [notes, setNotes] = useState([]);
   const [displayedNote, setDisplayedNote]=useState("");
-  const [searchBy, setSearchBy] = useState("");
+  const [search, setSearch] = useState("");
   
   useEffect(()=>{
     fetch('http://localhost:3000/notes')
@@ -18,9 +18,9 @@ function onNoteClick (note) {
   setDisplayedNote(note);
 }
 
-function handleSearchChange(){
-
-}
+function handleSearchChange (event) {
+  console.log(event.target.value)
+};
 
   return (
     <>
