@@ -14,19 +14,21 @@ function NoteContainer () {
   .then((data)=>setNotes(data))
 }, [])
 
+function handleNewButtonClick() {
+  console.log('hello')
+}
+
 function onNoteClick (note) {
-  setDisplayedNote(note);
+  setDisplayedNote(note)
 }
 
 function handleSearchChange (event) {
   setSearch(event.target.value);
 };
 
-function handleNewButtonClick () {
-  
-}
 
 const filteredNotes = notes.filter(note=>note.title.toLowerCase().includes(search.toLowerCase()));
+
 
   return (
     <>
