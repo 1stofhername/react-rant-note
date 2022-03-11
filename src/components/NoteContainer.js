@@ -12,12 +12,16 @@ function NoteContainer () {
   .then((data)=>setNotes(data))
 }, [])
 
+function onNoteClick (id) {
+  console.log(`${id} was clicked!`)
+}
+
   return (
     <>
       <Search />
       <div className="container">
-        <Sidebar notes={notes} />
-        <Content />
+        <Sidebar notes={notes} onNoteClick={onNoteClick} />
+        <Content notes={notes} />
       </div>
     </>
   );
