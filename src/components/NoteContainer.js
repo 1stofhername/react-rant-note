@@ -5,6 +5,7 @@ import Content from "./Content";
 
 function NoteContainer () {
   const [notes, setNotes] = useState([]);
+  const [displayedNote, setDisplayedNote]=useState();
   
   useEffect(()=>{
     fetch('http://localhost:3000/notes')
@@ -12,8 +13,8 @@ function NoteContainer () {
   .then((data)=>setNotes(data))
 }, [])
 
-function onNoteClick (id) {
-  console.log(`${id} was clicked!`)
+function onNoteClick (note) {
+  setDisplayedNote(note);
 }
 
   return (
@@ -21,7 +22,7 @@ function onNoteClick (id) {
       <Search />
       <div className="container">
         <Sidebar notes={notes} onNoteClick={onNoteClick} />
-        <Content notes={notes} />
+        <Content notes={notes} displayedNote={displayedNote} />
       </div>
     </>
   );
