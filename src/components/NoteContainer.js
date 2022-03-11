@@ -5,8 +5,10 @@ import Content from "./Content";
 
 function NoteContainer () {
   const [notes, setNotes] = useState([]);
+  fetch('http://localhost:3000/notes')
+  .then((res)=>res.json())
+  .then((data)=>setNotes(data))
 
-  
   return (
     <>
       <Search />
