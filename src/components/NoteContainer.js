@@ -19,15 +19,21 @@ function onNoteClick (note) {
 }
 
 function handleSearchChange (event) {
-  setSearch(event.target.value)
+  setSearch(event.target.value);
 };
+
+function handleNewButtonClick () {
+  
+}
+
+const filteredNotes = notes.filter(note=>note.title.toLowerCase().includes(search.toLowerCase()));
 
   return (
     <>
       <Search handleSearchChange={handleSearchChange} />
       <div className="container">
-        <Sidebar notes={notes} onNoteClick={onNoteClick} />
-        <Content notes={notes} displayedNote={displayedNote} />
+        <Sidebar notes={filteredNotes} onNoteClick={onNoteClick} handleNewButtonClick={handleNewButtonClick} />
+        <Content notes={filteredNotes} displayedNote={displayedNote} />
       </div>
     </>
   );
