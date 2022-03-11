@@ -1,9 +1,9 @@
 import React from "react";
 
-function NoteItem() {
+function NoteItem({ note }) {
   return (
     <li>
-      <h2>Title</h2>
+      <h2>{note.title}</h2>
       <p>Caption...</p>
     </li>
   );
