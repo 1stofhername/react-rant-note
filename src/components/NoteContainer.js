@@ -19,7 +19,7 @@ function onNoteClick (note) {
 }
 
 function handleSearchChange (event) {
-  console.log(event.target.value)
+  setSearch(event.target.value)
 };
 
   return (
