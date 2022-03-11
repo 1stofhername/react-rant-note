@@ -1,10 +1,11 @@
 import React from "react";
 
 function NoteItem({ note }) {
+  const caption=note.body.substr(0,20)+"...";
   return (
     <li>
       <h2>{note.title}</h2>
-      <p>Caption...</p>
+      <p>{caption}</p>
     </li>
   );
 }
