@@ -12,12 +12,21 @@ import Instructions from "./Instructions";
 */
 function Content({ displayedNote }) {
   const [editMode, setEditMode]=useState("");
+  const[editNoteContent, setEditNoteContent]=useState({
+    "title":"",
+    "body":"",
+  })
+
+  function onEditButtonClick (note) {
+    setEditMode(()=>!editMode)
+    console.log(note)
+  }
 
   const getContent = () => {
-    if (false) {
+    if (editMode) {
       return <NoteEditor />;
     } else if (displayedNote) {
-      return <NoteViewer displayedNote={displayedNote}  />;
+      return <NoteViewer displayedNote={displayedNote} onEditButtonClick={onEditButtonClick}  />;
     } else {
       return <Instructions />;
     }
