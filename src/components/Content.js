@@ -23,7 +23,7 @@ function Content({ displayedNote }) {
 
   const getContent = () => {
     if (editMode) {
-      return <NoteEditor note={displayedNote} />;
+      return <NoteEditor note={displayedNote} onCancelClick={onCancelClick} />;
     } else if (displayedNote) {
       return <NoteViewer displayedNote={displayedNote} onEditButtonClick={onEditButtonClick} />;
     } else {

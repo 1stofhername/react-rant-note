@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function NoteEditor({ note }) {
+function NoteEditor({ note, onCancelClick }) {
   const[editedNoteContent, setEditedNoteContent]=useState(note);
 
   function handleFormChange (event){
@@ -14,7 +14,7 @@ function NoteEditor({ note }) {
       <textarea name="body" value={editedNoteContent.body} onChange={e=>handleFormChange(e)} />
       <div className="button-row">
         <input className="button" type="submit" value="Save" />
-        <button type="button">Cancel</button>
+        <button type="button" onClick={onCancelClick}>Cancel</button>
       </div>
     </form>
   );
