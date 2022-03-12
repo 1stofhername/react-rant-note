@@ -21,13 +21,13 @@ function Content({ displayedNote }) {
     setEditMode(()=>!editMode)
   }
   
-  function onSaveClick () {
+  function onSaveClick (editedNoteObj) {
     setEditMode(()=>!editMode);
   }
 
   const getContent = () => {
     if (editMode) {
-      return <NoteEditor note={displayedNote} onCancelClick={onCancelClick} />;
+      return <NoteEditor note={displayedNote} onCancelClick={onCancelClick} onSaveClick={onSaveClick} />;
     } else if (displayedNote) {
       return <NoteViewer displayedNote={displayedNote} onEditButtonClick={onEditButtonClick} />;
     } else {

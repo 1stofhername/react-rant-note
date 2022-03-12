@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 
-function NoteEditor({ note, onCancelClick }) {
+function NoteEditor({ note, onCancelClick, onSaveClick }) {
   const[editedNoteContent, setEditedNoteContent]=useState(note);
 
   function handleFormChange (event){
     setEditedNoteContent({...note, [event.target.name]:event.target.value})
-    console.log(editedNoteContent);
+    onSaveClick(editedNoteContent);
   }
 
   return (
