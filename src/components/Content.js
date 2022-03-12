@@ -12,13 +12,11 @@ import Instructions from "./Instructions";
 */
 function Content({ displayedNote }) {
   const [editMode, setEditMode]=useState("");
-  const[editNoteContent, setEditNoteContent]=useState({
-    "title":"",
-    "body":"",
-  })
+  const[editNoteContent, setEditNoteContent]=useState("")
 
   function onEditButtonClick (note) {
-    setEditMode(()=>!editMode)
+    setEditMode(()=>!editMode);
+    if(editMode) {setEditNoteContent(note)}
     console.log(note)
   }
 
