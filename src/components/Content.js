@@ -20,6 +20,10 @@ function Content({ displayedNote }) {
   function onCancelClick () {
     setEditMode(()=>!editMode)
   }
+  
+  function onSaveClick () {
+    setEditMode(()=>!editMode);
+  }
 
   const getContent = () => {
     if (editMode) {
