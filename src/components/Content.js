@@ -10,7 +10,7 @@ import Instructions from "./Instructions";
           Then complete the rest of your app before attempting to
           refactor to get this Content component to work.
 */
-function Content({ displayedNote }) {
+function Content({ displayedNote, onEditSubmit }) {
   const [editMode, setEditMode]=useState("");
   
   function onEditButtonClick () {
@@ -27,7 +27,7 @@ function Content({ displayedNote }) {
 
   const getContent = () => {
     if (editMode) {
-      return <NoteEditor note={displayedNote} onCancelClick={onCancelClick} onSaveClick={onSaveClick} />;
+      return <NoteEditor note={displayedNote} onCancelClick={onCancelClick} onEditSubmit={onEditSubmit} />;
     } else if (displayedNote) {
       return <NoteViewer displayedNote={displayedNote} onEditButtonClick={onEditButtonClick} />;
     } else {
