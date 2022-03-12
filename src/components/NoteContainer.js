@@ -39,7 +39,9 @@ function handleNewButtonClick () {
   .then(data=>{let updatedNotes= [...notes, data]; setNotes(updatedNotes)})
 }
 
-function onEditSubmit (){}
+function handleEditSubmit (editedNoteObj){
+  console.log(editedNoteObj)
+}
 
 const filteredNotes = notes.filter(note=>note.title.toLowerCase().includes(search.toLowerCase()));
 
@@ -48,7 +50,7 @@ const filteredNotes = notes.filter(note=>note.title.toLowerCase().includes(searc
       <Search handleSearchChange={handleSearchChange} />
       <div className="container">
         <Sidebar notes={filteredNotes} onNoteClick={onNoteClick} handleNewButtonClick={handleNewButtonClick} />
-        <Content notes={filteredNotes} displayedNote={displayedNote} onEditSubmit={onEditSubmit} />
+        <Content notes={filteredNotes} displayedNote={displayedNote} handleEditSubmit={handleEditSubmit} />
       </div>
     </>
   );
