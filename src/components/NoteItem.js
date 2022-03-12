@@ -1,12 +1,13 @@
 import React from "react";
 
 function NoteItem({ note, onNoteClick }) {
-
-  const caption = (note.body.substr(0,20)+"...");
+  const { body, title } = note
+  const caption = (body.length > 20) ? note.body.substr(0,20)+"...": note.body
+  
 
   return (
     <li onClick={()=>onNoteClick(note)}>
-      <h2>{note.title}</h2>
+      <h2>{title}</h2>
       <p>{caption}</p>
     </li>
   );

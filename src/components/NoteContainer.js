@@ -12,23 +12,34 @@ function NoteContainer () {
     fetch('http://localhost:3000/notes')
   .then((res)=>res.json())
   .then((data)=>setNotes(data))
-}, [])
-
-function handleNewButtonClick() {
-  console.log('hello')
-}
+}, []);
 
 function onNoteClick (note) {
-  setDisplayedNote(note)
+  setDisplayedNote(note);
 }
 
 function handleSearchChange (event) {
   setSearch(event.target.value);
 };
 
+function handleNewButtonClick () {
+  fetch('http://localhost:3000/notes', {
+    method:"POST",
+    headers:{
+      "Content-Type":"application/json",
+      "Accept":"application/json",
+    },
+    body:JSON.stringify({
+      userId:1,
+      title:"default",
+      body:"placeholder"
+    })
+  })
+  .then(res=>res.json())
+  .then(data=>{let updatedNotes= [...notes, data]; setNotes(updatedNotes)})
+}
 
 const filteredNotes = notes.filter(note=>note.title.toLowerCase().includes(search.toLowerCase()));
-
 
   return (
     <>
