@@ -69,7 +69,17 @@ function handleEditSubmit (editedNoteObj){
 };
 
 function onDeleteButtonClick (item) {
-  console.log(item)
+  fetch(`http://localhost:3000/notes/${item.id}`, {
+    method:"DELETE",
+  })
+  .then(res=>res.json())
+  .then(()=>handleDeleteItem(item))
+}
+
+function handleDeleteItem (deletedItem) {
+  let updatedNotes=notes.filter((note)=>{return note.id!==deletedItem.id});
+  setNotes(updatedNotes);
+  setDisplayedNote("");
 }
 
 const filteredNotes = notes.filter(note=>note.title.toLowerCase().includes(search.toLowerCase()));
