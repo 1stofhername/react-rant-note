@@ -72,7 +72,7 @@ p.instructions {
 
 input {
   font-size: 24px;
-  height: 40px;
+  height: 51px;
   width: 100%;
   border: none;
 }
@@ -188,6 +188,7 @@ button:focus, input[type="submit"]:focus {
   outline: none;
 }
 
-button#delete [type="delete"] {
-  color:grey;
+p#clear-search {
+  padding-right: 15px;
+  padding-left: 15px;
 }

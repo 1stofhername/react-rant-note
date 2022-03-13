@@ -8,24 +8,16 @@ function NoteContainer () {
   const [displayedNote, setDisplayedNote]=useState("");
   const [search, setSearch] = useState("");
   const [editMode, setEditMode]=useState("");
+  const filteredNotes = notes.filter(note=>note.title.toLowerCase().includes(search.toLowerCase()));
   
+
+  //CRUD Functions 
+
   useEffect(()=>{
     fetch('http://localhost:3000/notes')
   .then((res)=>res.json())
   .then((data)=>setNotes(data))
 }, []);
-
-  function toggleEditMode () {
-    setEditMode(()=>!editMode)
-  }
-
-function toggleDisplayedNote (note) {
-  setDisplayedNote(note);
-}
-
-function handleSearchChange (event) {
-  setSearch(event.target.value);
-};
 
 function handleNewButtonClick () {
   fetch('http://localhost:3000/notes', {
@@ -37,7 +29,7 @@ function handleNewButtonClick () {
     body:JSON.stringify({
       userId:1,
       title:"default",
-      body:"placeholder"
+      body:"placeholder",
     })
   })
   .then(res=>res.json())
@@ -76,17 +68,40 @@ function onDeleteButtonClick (item) {
   .then(()=>handleDeleteItem(item))
 }
 
+
+//onEvent State Toggle Functions
+
+function toggleEditMode () {
+  setEditMode(()=>!editMode)
+}
+
+function toggleDisplayedNote (note) {
+setDisplayedNote(note);
+}
+
+function handleSearchChange (event) {
+setSearch(event.target.value);
+};
+
 function handleDeleteItem (deletedItem) {
   let updatedNotes=notes.filter((note)=>{return note.id!==deletedItem.id});
   setNotes(updatedNotes);
   setDisplayedNote("");
 }
 
-const filteredNotes = notes.filter(note=>note.title.toLowerCase().includes(search.toLowerCase()));
+function handleClearSearch (event) {
+  setSearch("");
+  
+  
+
+  console.log(event.target)
+}
+
+
 
   return (
     <>
-      <Search handleSearchChange={handleSearchChange} />
+      <Search handleSearchChange={handleSearchChange} handleClearSearch={handleClearSearch} search={search} />
       <div className="container">
         <Sidebar notes={filteredNotes} onNoteClick={toggleDisplayedNote} handleNewButtonClick={handleNewButtonClick} />
         <Content 
