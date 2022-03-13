@@ -1,35 +1,16 @@
-import React, { useState } from "react";
+import React from "react";
 import NoteEditor from "./NoteEditor";
 import NoteViewer from "./NoteViewer";
 import Instructions from "./Instructions";
 
-/*
-  Advice: If you cannot figure out how to get this component to work,
-          move the div and getContent up into NoteContainer and
-          try to get it to work in the parent first.
-          Then complete the rest of your app before attempting to
-          refactor to get this Content component to work.
-*/
-function Content({ displayedNote, handleEditSubmit }) {
-  const [editMode, setEditMode]=useState("");
+function Content({ displayedNote, editMode, handleEditSubmit, toggleEditMode, onDeleteButtonClick }) {
   
-  function onEditButtonClick () {
-    setEditMode(()=>!editMode)
-  }
-
-  function onCancelClick () {
-    setEditMode(()=>!editMode)
-  }
-  
-  function onSaveClick (editedNoteObj) {
-    setEditMode(()=>!editMode);
-  }
 
   const getContent = () => {
     if (editMode) {
-      return <NoteEditor note={displayedNote} onCancelClick={onCancelClick} handleEditSubmit={handleEditSubmit} />;
+      return <NoteEditor note={displayedNote} onCancelClick={toggleEditMode} handleEditSubmit={handleEditSubmit} />;
     } else if (displayedNote) {
-      return <NoteViewer displayedNote={displayedNote} onEditButtonClick={onEditButtonClick} />;
+      return <NoteViewer displayedNote={displayedNote} onEditButtonClick={toggleEditMode} onDeleteButtonClick={onDeleteButtonClick} />;
     } else {
       return <Instructions />;
     }

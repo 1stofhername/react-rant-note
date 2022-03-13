@@ -7,6 +7,7 @@ function NoteContainer () {
   const [notes, setNotes] = useState([]);
   const [displayedNote, setDisplayedNote]=useState("");
   const [search, setSearch] = useState("");
+  const [editMode, setEditMode]=useState("");
   
   useEffect(()=>{
     fetch('http://localhost:3000/notes')
@@ -14,7 +15,11 @@ function NoteContainer () {
   .then((data)=>setNotes(data))
 }, []);
 
-function onNoteClick (note) {
+  function toggleEditMode () {
+    setEditMode(()=>!editMode)
+  }
+
+function toggleDisplayedNote (note) {
   setDisplayedNote(note);
 }
 
@@ -36,11 +41,35 @@ function handleNewButtonClick () {
     })
   })
   .then(res=>res.json())
-  .then(data=>{let updatedNotes= [...notes, data]; setNotes(updatedNotes)})
+  .then(data=>{let newNotes= [...notes, data]; setNotes(newNotes)})
 }
 
 function handleEditSubmit (editedNoteObj){
-  console.log(editedNoteObj)
+  fetch(`http://localhost:3000/notes/${editedNoteObj.id}`, {
+    method:"PATCH",
+    headers:{
+      "Content-Type":"application/json",
+      "Accept":"application/json"
+    },
+    body:JSON.stringify(editedNoteObj)
+  })
+  .then(res=>res.json())
+  .then((data)=>{
+    const updatedNotes = notes.map((note)=>{ 
+      if (note.id===data.id) {
+        return data
+      } else {
+        return note
+      }
+    });
+      setNotes(updatedNotes);
+      toggleDisplayedNote(editedNoteObj)
+      setEditMode(()=>!editMode);
+    })
+};
+
+function onDeleteButtonClick (item) {
+  console.log(item)
 }
 
 const filteredNotes = notes.filter(note=>note.title.toLowerCase().includes(search.toLowerCase()));
@@ -49,8 +78,14 @@ const filteredNotes = notes.filter(note=>note.title.toLowerCase().includes(searc
     <>
       <Search handleSearchChange={handleSearchChange} />
       <div className="container">
-        <Sidebar notes={filteredNotes} onNoteClick={onNoteClick} handleNewButtonClick={handleNewButtonClick} />
-        <Content notes={filteredNotes} displayedNote={displayedNote} handleEditSubmit={handleEditSubmit} />
+        <Sidebar notes={filteredNotes} onNoteClick={toggleDisplayedNote} handleNewButtonClick={handleNewButtonClick} />
+        <Content 
+        displayedNote={displayedNote} 
+        editMode={editMode} 
+        handleEditSubmit={handleEditSubmit} 
+        toggleEditMode={toggleEditMode}
+        onDeleteButtonClick={onDeleteButtonClick}
+         />
       </div>
     </>
   );

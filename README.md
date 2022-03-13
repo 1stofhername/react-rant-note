@@ -1,10 +1,6 @@
-# Phase 2 Guided Project Guidelines
+# Frog zapper
 
-In this guided project, we'll be building an Evernote-like application with React.
 
-Your goal will be to complete the baseline deliverables using the provided
-starter code and then make this project your own by building out unique stretch
-goals. Some suggestions are listed below, but try to be creative!
 
 ## Requirements
 
@@ -123,9 +119,11 @@ baseline deliverables you need to complete:
 
 ## Stretch Goals
 
-When you are finished with the _deliverables_, you can build out any new
-features that you want. This is your chance to be creative and make your project
-unique!
+- Add the ability to filter by body, date created, date edited, etc.
+- Checkboxes, slash thru checked values
+- Sorting by date created, date edited, alphabetical, etc.
+- Add subject hashtags
+
 
 Some suggestions:
 
