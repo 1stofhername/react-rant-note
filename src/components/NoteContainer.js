@@ -91,7 +91,10 @@ function handleDeleteItem (deletedItem) {
 
 function handleClearSearch (event) {
   setSearch("");
+
+function renderSearchClear (event) {
   
+}
   
 
   console.log(event.target)

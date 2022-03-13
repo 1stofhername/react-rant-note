@@ -17,7 +17,7 @@ body {
 
 /* Styles */
 h2, input[name="title"], textarea {
-  font-family: 'IBM Plex Mono'
+  font-family: 'IBM Plex Mono';
 }
 
 p.instructions {
@@ -32,6 +32,7 @@ p.instructions {
   border: 1px dashed grey;
   margin: 0.5em 0;
   box-sizing: border-box;
+  padding:10px;
 }
 
 .note-editor textarea {
@@ -39,6 +40,7 @@ p.instructions {
   border: 1px dashed grey;
   box-sizing: border-box;
   resize: none;
+  padding:10px;
 }
 
 .nav-bar {
@@ -188,7 +190,12 @@ button:focus, input[type="submit"]:focus {
   outline: none;
 }
 
-p#clear-search {
-  padding-right: 15px;
-  padding-left: 15px;
+button#clear-search {
+  background:none;
+  border:none;
+  margin:0;
+  padding:0;
+  cursor: pointer;
+
 }
+
