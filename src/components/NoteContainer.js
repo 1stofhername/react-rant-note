@@ -33,7 +33,7 @@ function handleNewButtonClick () {
     })
   })
   .then(res=>res.json())
-  .then(data=>{let newNotes= [...notes, data]; setNotes(newNotes)})
+  .then(data=>{let newNotes= [...notes, data]; setNotes(newNotes);setDisplayedNote(data)})
 }
 
 function handleEditSubmit (editedNoteObj){
@@ -91,10 +91,6 @@ function handleDeleteItem (deletedItem) {
 
 function handleClearSearch (event) {
   setSearch("");
-
-function renderSearchClear (event) {
-  
-}
   
 
   console.log(event.target)
