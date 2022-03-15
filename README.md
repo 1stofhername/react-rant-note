@@ -118,20 +118,10 @@ baseline deliverables you need to complete:
 ![completed edit notes](https://curriculum-content.s3.amazonaws.com/phase-2/react-hooks-evernote-json-server-guided-project/react-evernote-edit.gif)
 
 ## Stretch Goals
-
+- Add clear search bar button that renders when a value is typed in the searchbar.
+- Clicking save button returns Noteviewer back to the instructions page.
+- Clicking new button switches newly created note to displayed note.
 - Add the ability to filter by body, date created, date edited, etc.
 - Checkboxes, slash thru checked values
 - Sorting by date created, date edited, alphabetical, etc.
-- Add subject hashtags
-
-
-Some suggestions:
-
-- Add the ability to filter by body, date created, date edited, etc.
-- Sorting by date created, date edited, alphabetical, etc.
-- Use `react-router` to create a multi-page app
-- User signup & login
-- Sharing notes with other users
-- Rich text formatting
-- Tagging
-- Emailing notes
+- Add and sort by subject hashtags.

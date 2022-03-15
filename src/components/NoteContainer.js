@@ -30,6 +30,7 @@ function handleNewButtonClick () {
       userId:1,
       title:"default",
       body:"placeholder",
+      tags:[]
     })
   })
   .then(res=>res.json())
@@ -68,6 +69,11 @@ function onDeleteButtonClick (item) {
   .then(()=>handleDeleteItem(item))
 }
 
+function onTagClick (event) {
+  let filteredNotes= notes.map(note=>{if(event.target.name===note.tag){return note}})
+  console.log(filteredNotes)
+}
+
 
 //onEvent State Toggle Functions
 
@@ -76,8 +82,12 @@ function toggleEditMode () {
 }
 
 function toggleDisplayedNote (note) {
-setDisplayedNote(note);
-}
+if (editMode) {
+  setEditMode(()=>!editMode);
+  setDisplayedNote(note)
+} else {
+  setDisplayedNote(note)
+}};
 
 function handleSearchChange (event) {
 setSearch(event.target.value);
@@ -89,26 +99,32 @@ function handleDeleteItem (deletedItem) {
   setDisplayedNote("");
 }
 
-function handleClearSearch (event) {
+function handleClearSearch () {
   setSearch("");
-  
-
-  console.log(event.target)
 }
 
 
 
   return (
     <>
-      <Search handleSearchChange={handleSearchChange} handleClearSearch={handleClearSearch} search={search} />
+      <Search 
+        handleSearchChange={handleSearchChange} 
+        handleClearSearch={handleClearSearch} 
+        search={search} 
+        />
       <div className="container">
-        <Sidebar notes={filteredNotes} onNoteClick={toggleDisplayedNote} handleNewButtonClick={handleNewButtonClick} />
+        <Sidebar 
+          notes={filteredNotes} 
+          onNoteClick={toggleDisplayedNote} 
+          handleNewButtonClick={handleNewButtonClick} 
+          />
         <Content 
         displayedNote={displayedNote} 
         editMode={editMode} 
         handleEditSubmit={handleEditSubmit} 
         toggleEditMode={toggleEditMode}
         onDeleteButtonClick={onDeleteButtonClick}
+        onTagClick={onTagClick}
          />
       </div>
     </>
