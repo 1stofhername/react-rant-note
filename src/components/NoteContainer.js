@@ -2,12 +2,16 @@ import React, { useState, useEffect } from "react";
 import Search from "./Search";
 import Sidebar from "./Sidebar";
 import Content from "./Content";
+import TagFilter from "./TagFilter";
 
 function NoteContainer () {
+  
   const [notes, setNotes] = useState([]);
   const [displayedNote, setDisplayedNote]=useState("");
   const [search, setSearch] = useState("");
+  const [tagFilters, setTagFilter] = useState("");
   const [editMode, setEditMode]=useState("");
+
   const filteredNotes = notes.filter(note=>note.title.toLowerCase().includes(search.toLowerCase()));
   
 
@@ -69,13 +73,11 @@ function onDeleteButtonClick (item) {
   .then(()=>handleDeleteItem(item))
 }
 
-function onTagClick (event) {
-  let filteredNotes= notes.map(note=>{if(event.target.name===note.tag){return note}})
-  console.log(filteredNotes)
-}
-
-
 //onEvent State Toggle Functions
+
+function onTagClick (event) {
+  setTagFilter(event.target.name)
+}
 
 function toggleEditMode () {
   setEditMode(()=>!editMode)
@@ -103,14 +105,16 @@ function handleClearSearch () {
   setSearch("");
 }
 
-
-
   return (
     <>
       <Search 
         handleSearchChange={handleSearchChange} 
         handleClearSearch={handleClearSearch} 
         search={search} 
+        />
+      <TagFilter 
+        notes={notes} 
+        handleTagFilter={onTagClick} 
         />
       <div className="container">
         <Sidebar 
