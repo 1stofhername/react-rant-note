@@ -224,7 +224,27 @@ button.tag {
   width:fit-content;
 }
 
-button.tag#add-new-tag {
+button.tag-selector {
+  display:inline;
+  background-image: linear-gradient(to right top, #adadad, #d3d3d3, #eceaea);
+  padding:5px;
+  border-radius: 10px;
+  margin-right: 10px;
+  color:black;
+  width:fit-content;
+}
+
+button[attribute="selected"] {
+  display:inline;
+  background-image: linear-gradient(to right top, #727272, #858484, #9c9c9c);
+  padding:5px;
+  border-radius: 10px;
+  margin-right: 10px;
+  color:white;
+  width:fit-content;
+}
+
+button.tag[attribute="inactive-tag"] {
   display:inline;
   background-image: none;
   padding:5px;

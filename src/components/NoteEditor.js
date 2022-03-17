@@ -20,7 +20,7 @@ function NoteEditor({ note, onCancelClick, handleEditSubmit }) {
     <form className="note-editor" onSubmit={e=>onEditSubmit(e)}>
       <input type="text" name="title" value={editedNoteContent.title} onChange={e=>handleFormChange(e)} />
       <textarea name="body" value={editedNoteContent.body} onChange={e=>handleFormChange(e)} />
-      <input type="text" name="tags" id="tags" label="Tags:" value={editedNoteContent.tags} placeholder="Enter tags separated by #" onChange={(e)=>handleTagChange(e)} />
+      <input type="text" name="tags" id="tags" value={editedNoteContent.tags} placeholder="Enter tags separated by ," onChange={(e)=>handleTagChange(e)} />
       <div className="button-row">
         <input className="button" type="submit" value="Save"/>
         <button type="button" onClick={onCancelClick}>Cancel</button>

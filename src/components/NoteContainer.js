@@ -9,12 +9,21 @@ function NoteContainer () {
   const [notes, setNotes] = useState([]);
   const [displayedNote, setDisplayedNote]=useState("");
   const [search, setSearch] = useState("");
-  const [tagFilters, setTagFilter] = useState("");
+  const [tagFilter, setTagFilter] = useState("");
+  const [displayedTags, setDisplayedTags] = useState([]);
   const [editMode, setEditMode]=useState("");
 
-  const filteredNotes = notes.filter(note=>note.title.toLowerCase().includes(search.toLowerCase()));
-  
-
+  const filteredNotes = notes
+    .filter(note=>note.title.toLowerCase().includes(search.toLowerCase()))
+    .filter(note=> {
+      if(tagFilter) {
+      return note.tags.find(element=>element===tagFilter)
+    } else if (!tagFilter) { 
+      return true
+    }
+  })
+    
+    console.log(filteredNotes)
   //CRUD Functions 
 
   useEffect(()=>{
@@ -76,7 +85,14 @@ function onDeleteButtonClick (item) {
 //onEvent State Toggle Functions
 
 function onTagClick (event) {
-  setTagFilter(event.target.name)
+  setTagFilter(()=>event.target.name);
+  let buttons = document.querySelectorAll('tag-selector')
+  buttons.forEach(button=>{console.log(button.name===event.target.name)})
+  (event.target).setAttribute("attribute", "selected");
+}
+
+function handleTagReset () {
+  setTagFilter("");
 }
 
 function toggleEditMode () {
@@ -114,7 +130,8 @@ function handleClearSearch () {
         />
       <TagFilter 
         notes={notes} 
-        handleTagFilter={onTagClick} 
+        onTagClick={onTagClick}
+        handleTagReset={handleTagReset} 
         />
       <div className="container">
         <Sidebar 
