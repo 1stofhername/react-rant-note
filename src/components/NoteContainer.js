@@ -10,8 +10,9 @@ function NoteContainer () {
   const [displayedNote, setDisplayedNote]=useState("");
   const [search, setSearch] = useState("");
   const [tagFilter, setTagFilter] = useState("All");
-  const [displayedTags, setDisplayedTags] = useState([]);
   const [editMode, setEditMode]=useState("");
+
+//Search and Filter
 
   const filteredNotes = notes
     .filter(note=>note.title.toLowerCase().includes(search.toLowerCase()))
@@ -23,7 +24,6 @@ function NoteContainer () {
     }
   })
     
-    console.log(filteredNotes)
   //CRUD Functions 
 
   useEffect(()=>{
