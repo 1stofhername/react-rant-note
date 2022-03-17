@@ -1,17 +1,20 @@
-# Frog zapper
+# Rant Note
+Rant Note is a React project that facilitates keeping notes and ideas.
+## Installation
+<br>
+<ol>
+<li>Run the command <code>npm install</code> in the terminal to install the project dependencies.</li>
+<br>
+<li> Run the command <code>npm run server</code> in the terminal to initiate the REST API.</li>
+<br>
+<li>Run the command <code>npm start</code> in the terminal to open the project.</li>
+</ol>
+<br>
 
+## Usage
 
+View all existing notes in the sidebar.
 
-## Requirements
-
-- Complete all of the deliverables
-- Build out at least 1 stretch goal feature
-
-## Setup
-
-To get started, fork and clone this repository.
-
-The codebase is split up into a JSON Server API backend and a React frontend.
 
 ### Frontend
 
@@ -77,51 +80,45 @@ baseline deliverables you need to complete:
 
 ### Viewing and Displaying Notes
 
-- [ ] Display all notes in the left sidebar.
-- [ ] Displayed sidebar notes should show the title and a truncated body.
-- [ ] When a note from the sidebar is clicked, display its contents in the right
+- [x] Display all notes in the left sidebar.
+- [x] Displayed sidebar notes should show the title and a truncated body.
+- [x] When a note from the sidebar is clicked, display its contents in the right
       panel.
 
 ![completed display notes](https://curriculum-content.s3.amazonaws.com/phase-2/react-hooks-evernote-json-server-guided-project/react-evernote-display.gif)
 
 ### Filtering Notes
 
-- [ ] Implement the filter to search through your notes list by title.
+- [x] Implement the filter to search through your notes list by title.
 
 ![completed filter notes](https://curriculum-content.s3.amazonaws.com/phase-2/react-hooks-evernote-json-server-guided-project/react-evernote-filter.gif)
 
 ### Creating Notes
 
-- [ ] At the bottom of your left sidebar, show a `New` button.
-- [ ] Clicking `New` will create a new note via a `POST` request with some
+- [x] At the bottom of your left sidebar, show a `New` button.
+- [x] Clicking `New` will create a new note via a `POST` request with some
       default title and body. **NOTE**: You don't have to use any kind of `<form>`
       element for this deliverable; you can create an object with a default title
       and body text when the button is clicked. Make sure to check the
       [Routes](#Routes) section of this README to determine what data you need in
       the body of your request.
-- [ ] This new note should appear in the sidebar.
+- [x] This new note should appear in the sidebar.
 
 ![completed create notes](https://curriculum-content.s3.amazonaws.com/phase-2/react-hooks-evernote-json-server-guided-project/react-evernote-create.gif)
 
 ### Editing Notes
 
-- [ ] When displaying a note in the right panel, show an `Edit` button.
-- [ ] Clicking the `Edit` button will allow the user to edit the title and body
+- [x] When displaying a note in the right panel, show an `Edit` button.
+- [x] Clicking the `Edit` button will allow the user to edit the title and body
       in the right panel.
-- [ ] When in edit mode, also show a `Save` button which saves the note via a
+- [x] When in edit mode, also show a `Save` button which saves the note via a
       `PATCH` request.
-- [ ] When in edit mode, also show a `Cancel` button which discards any changes
+- [x] When in edit mode, also show a `Cancel` button which discards any changes
       and reverts back to displaying the note.
-- [ ] Clicking a different note while in edit mode should discard your changes
+- [x] Clicking a different note while in edit mode should discard your changes
       and display the new note instead.
-
-![completed edit notes](https://curriculum-content.s3.amazonaws.com/phase-2/react-hooks-evernote-json-server-guided-project/react-evernote-edit.gif)
-
-## Stretch Goals
+- Add tags based on subject.
+- Sort by subject subject tags.
 - Add clear search bar button that renders when a value is typed in the searchbar.
 - Clicking save button returns Noteviewer back to the instructions page.
 - Clicking new button switches newly created note to displayed note.
-- Add the ability to filter by body, date created, date edited, etc.
-- Checkboxes, slash thru checked values
-- Sorting by date created, date edited, alphabetical, etc.
-- Add and sort by subject hashtags.
