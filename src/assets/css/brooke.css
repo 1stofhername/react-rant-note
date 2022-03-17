@@ -230,6 +230,8 @@ button.tag-selector {
   padding:5px;
   border-radius: 10px;
   margin-right: 10px;
+  margin-left:5px;
+  margin-top: 10px;
   color:black;
   width:fit-content;
 }

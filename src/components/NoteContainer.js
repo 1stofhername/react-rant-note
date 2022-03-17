@@ -9,17 +9,17 @@ function NoteContainer () {
   const [notes, setNotes] = useState([]);
   const [displayedNote, setDisplayedNote]=useState("");
   const [search, setSearch] = useState("");
-  const [tagFilter, setTagFilter] = useState("");
+  const [tagFilter, setTagFilter] = useState("All");
   const [displayedTags, setDisplayedTags] = useState([]);
   const [editMode, setEditMode]=useState("");
 
   const filteredNotes = notes
     .filter(note=>note.title.toLowerCase().includes(search.toLowerCase()))
     .filter(note=> {
-      if(tagFilter) {
+      if (tagFilter==='All') {
+        return true 
+      } else if (tagFilter) {
       return note.tags.find(element=>element===tagFilter)
-    } else if (!tagFilter) { 
-      return true
     }
   })
     
@@ -86,9 +86,6 @@ function onDeleteButtonClick (item) {
 
 function onTagClick (event) {
   setTagFilter(()=>event.target.name);
-  let buttons = document.querySelectorAll('tag-selector')
-  buttons.forEach(button=>{console.log(button.name===event.target.name)})
-  (event.target).setAttribute("attribute", "selected");
 }
 
 function handleTagReset () {
@@ -130,6 +127,7 @@ function handleClearSearch () {
         />
       <TagFilter 
         notes={notes} 
+        tagFilter={tagFilter}
         onTagClick={onTagClick}
         handleTagReset={handleTagReset} 
         />
