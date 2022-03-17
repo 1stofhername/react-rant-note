@@ -29,6 +29,8 @@ In the center view container, click the 'Delete' button to permanently delete a 
 
 Type in the Search bar to search notes by title.
 
+Click the red 'x' to clear search terms.
+
 Click tags in the 'Filter by tag' row to filter notes by tags. 
 
 To revert to viewing all notes, click the 'All' tag.

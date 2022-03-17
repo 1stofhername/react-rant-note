@@ -24,7 +24,8 @@
         "latin",
         "language",
         "hello",
-        "something"
+        "something",
+        "another"
       ]
     },
     {
@@ -118,6 +119,15 @@
         "education"
       ],
       "id": 11
+    },
+    {
+      "userId": 1,
+      "title": "Hello",
+      "body": "Here is a note.",
+      "tags": [
+        "hello"
+      ],
+      "id": 12
     }
   ]
 }
