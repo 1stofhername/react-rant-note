@@ -21,6 +21,8 @@ function NoteContainer () {
         return true 
       } else if (tagFilter) {
       return note.tags.find(element=>element===tagFilter)
+    } else if (!tagFilter) {
+      setTagFilter("All");
     }
   })
     
