@@ -6,7 +6,7 @@ function TagFilter ({ notes, tagFilter, onTagClick, handleTagReset }) {
     const uniqueTags = ([...new Set(allTags)]);
 
     return (
-    <div>
+    <div className="tag-filter">
         Filter by tag: 
         {uniqueTags.map(tag=>
         <button key={tag} name={tag} className="tag-selector" attribute={tagFilter===tag?"selected": null} onClick={(e)=>onTagClick(e)}>

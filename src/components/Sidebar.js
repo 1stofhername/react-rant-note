@@ -1,11 +1,14 @@
 import React from "react";
-import NoteList from "./NoteList";
+import NoteGrid from "./NoteGrid";
 
-function Sidebar({ notes, onNoteClick, handleNewButtonClick }) {
+function Sidebar({ notes, onNoteClick, handleNewButtonClick, handleSortTitle }) {
+
   return (
-    <div className="master-detail-element sidebar">
-      <NoteList notes={notes} onNoteClick={onNoteClick} />
-      <button onClick={(e)=>handleNewButtonClick()}>New</button>
+    <div className="master-detail-element view-all">
+      {/* <button onClick={(e)=>handleNewButtonClick()}>New</button>
+      <button onClick={handleSortTitle}>Sort by title</button> */}
+      <NoteGrid notes={notes} onNoteClick={onNoteClick} />
+      {/* <button onClick={(e)=>handleNewButtonClick()}>New</button> */}
     </div>
   );
 }

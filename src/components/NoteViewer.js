@@ -1,23 +1,43 @@
 import React from "react";
 import { v4 as uuidv4 } from 'uuid';
+import { useState } from 'react';
+import { useEffect } from "react";
+import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-function NoteViewer({ displayedNote, onEditButtonClick, onDeleteButtonClick, onTagClick}) {
-  const { title, body, tags } = displayedNote;
+function NoteViewer({ onEditButtonClick, onDeleteButtonClick }) {
+  const [note, setNote] = useState(null);
+  const { id } = useParams();
   
+  
+  useEffect(()=>{
+    fetch(`http://localhost:3000/notes/${id}`)
+    .then(r=>r.json())
+    .then(data=> setNote(data))
+  }, [id])
+
+  console.log(note)
+
+  if(note){
   return (
-    <>
-      <h2>{title}</h2>
-      <p>{body}</p>
+    <div className="note-detail-container">
+
+      {note.tags?
       <div id="tag-container">
       <ul>
-        {tags.map(tag=>{
+        {note.tags.map(tag=>{
         return <button key={uuidv4()} name={tag} className="tag">{tag}</button>})}
       </ul>
-      </div>
-      <button onClick={onEditButtonClick}>Edit</button>
-      <button onClick={()=>onDeleteButtonClick(displayedNote)}>Delete</button>
-    </>
-  );
+      </div>:null}
+      <h2>{note.title}</h2>
+      <p>{note.body}</p>
+      <Link to={`/edit/${id}`} onClick={()=>onEditButtonClick(note)}>Edit</Link>
+      <button onClick={()=>onDeleteButtonClick(note)}>Delete</button>
+      <Link id="x" to={"/notes"}>View All Notes</Link>
+     </div>
+  );} else {
+    return <h1>Loading</h1>
+  }
 }
 
 export default NoteViewer;

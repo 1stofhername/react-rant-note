@@ -1,7 +1,17 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import { useEffect } from "react";
 
-function NoteEditor({ note, onCancelClick, handleEditSubmit }) {
+function NoteEditor({ note, handleEditSubmit }) {
   const [editedNoteContent, setEditedNoteContent]=useState(note);
+  const { id } = useParams();
+
+  useEffect(()=>{
+    fetch(`http://localhost:3000/notes/${id}`)
+    .then(r=>r.json())
+    .then(data=> setEditedNoteContent(data))
+  }, [id])
 
   function handleFormChange (event){
     setEditedNoteContent({...editedNoteContent, [event.target.name]:event.target.value})
@@ -22,8 +32,8 @@ function NoteEditor({ note, onCancelClick, handleEditSubmit }) {
       <textarea name="body" value={editedNoteContent.body} onChange={e=>handleFormChange(e)} />
       <input type="text" name="tags" id="tags" value={editedNoteContent.tags} placeholder="Enter tags separated by ," onChange={(e)=>handleTagChange(e)} />
       <div className="button-row">
-        <input className="button" type="submit" value="Save"/>
-        <button type="button" onClick={onCancelClick}>Cancel</button>
+        <input className="button" type="submit" value="Save" onSubmit={()=>onEditSubmit}/>
+        <Link to={"/notes"}>Cancel</Link>
       </div>
     </form>
   );
