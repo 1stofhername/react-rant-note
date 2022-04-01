@@ -55,7 +55,7 @@ p.instructions {
 
 .nav-bar {
   width: 100%;
-  background-image: url('/Users/Alicia/Development/code/Phase2/react-rant-note-refactored/src/assets/img/pexels-sergei-a-2539452.png');
+  background-image: url('../img/pexels-sergei-a-2539452.png');
   background-attachment: fixed;
   background-position:contain;
   background-repeat: no-repeat;
