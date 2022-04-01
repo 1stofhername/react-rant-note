@@ -26,7 +26,7 @@
         "irritations",
         "annoyances",
         "something",
-        "bs"
+        "then"
       ]
     },
     {
@@ -117,34 +117,6 @@
       "body": "placeholder",
       "tags": [],
       "id": 14
-    },
-    {
-      "userId": 1,
-      "title": "default",
-      "body": "placeholder",
-      "tags": [],
-      "id": 15
-    },
-    {
-      "userId": 1,
-      "title": "default",
-      "body": "placeholder",
-      "tags": [],
-      "id": 16
-    },
-    {
-      "userId": 1,
-      "title": "default",
-      "body": "placeholder",
-      "tags": [],
-      "id": 17
-    },
-    {
-      "userId": 1,
-      "title": "default",
-      "body": "placeholder",
-      "tags": [],
-      "id": 18
     }
   ]
 }

@@ -33,7 +33,7 @@ function NoteEditor({ note, handleEditSubmit }) {
       <input type="text" name="tags" id="tags" value={editedNoteContent.tags} placeholder="Enter tags separated by ," onChange={(e)=>handleTagChange(e)} />
       <div className="button-row">
         <input className="button" type="submit" value="Save" onSubmit={()=>onEditSubmit}/>
-        <Link to={"/notes"}>Cancel</Link>
+        <Link to={"/"}>Cancel</Link>
       </div>
     </form>
   );

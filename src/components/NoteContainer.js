@@ -104,7 +104,7 @@ function onDeleteButtonClick (item) {
     method:"DELETE",
   })
   .then(res=>res.json())
-  .then(data=>history.push(`/notes/`))
+  .then(data=>history.push(`/`))
   .then(()=>handleDeleteItem(item))
 }
 
@@ -144,7 +144,7 @@ function handleClearSearch () {
     <>
       <div className="container">
       <Switch>
-        <Route exact path="/notes">
+        <Route exact path="/">
         <AddNotes handleNewButtonClick={handleNewButtonClick} />
         <Search 
         handleSearchChange={handleSearchChange} 
@@ -169,14 +169,6 @@ function handleClearSearch () {
           <div>404 Not Found</div>
         </Route>
       </Switch>
-        {/* <Content 
-        displayedNote={displayedNote} 
-        editMode={editMode} 
-        handleEditSubmit={handleEditSubmit} 
-        toggleEditMode={toggleEditMode}
-        onDeleteButtonClick={onDeleteButtonClick}
-        onTagClick={onTagClick}
-         /> */}
       </div>
     </>
   );

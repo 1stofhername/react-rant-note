@@ -55,8 +55,11 @@ p.instructions {
 
 .nav-bar {
   width: 100%;
-  background-image: linear-gradient(to right top, #8C33E3, #696CE8, #4A9EEC);
+  background-image: url('/Users/Alicia/Development/code/Phase2/react-rant-note-refactored/src/assets/img/pexels-sergei-a-2539452.png');
+  background-attachment: fixed;
+  background-position:contain;
   background-repeat: no-repeat;
+  background-size:cover;
   font-family: 'IBM Plex Mono';
   font-size: 16px;
   letter-spacing: 1.5px;
@@ -66,6 +69,11 @@ p.instructions {
   justify-content: left;
   align-items: center;
   margin-bottom: 10px;
+}
+
+.title {
+  font-family: 'IBM Plex Mono';
+  align-items:center
 }
 
 .nav-item {
