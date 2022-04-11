@@ -4,16 +4,23 @@ Rant Note is a React project that facilitates keeping notes and ideas.
 <br>
 <ol>
 <li>To setup and run Rant Note run the following commands in the terminal:
+</li>
 <br>
 $ npm install
 <br>
 $ npm run server
 <br>
-$ npm start
+<br>
+<li>Open an additional terminal window and run the following command:
 </li>
+
+<br>
+$ npm start
+<br>
 <br>
 
 ## Usage
+<br>
 
 Scroll in the sidebar to view all existing notes.
 
