@@ -6,7 +6,6 @@ import NoteEditor from "./NoteEditor";
 import NoteViewer from "./NoteViewer";
 import NoteGrid from "./NoteGrid";
 import { useHistory } from "react-router-dom";
-import AddNotes from "./AddNotes";
 
 function NoteContainer () {
   
@@ -67,8 +66,8 @@ function handleNewButtonClick () {
     },
     body:JSON.stringify({
       userId:1,
-      title:"default",
-      body:"placeholder",
+      title:"New Note",
+      body:"Add note content",
       tags:[]
     })
   })
@@ -145,7 +144,6 @@ function handleClearSearch () {
       <div className="container">
       <Switch>
         <Route exact path="/">
-        <AddNotes handleNewButtonClick={handleNewButtonClick} />
         <Search 
         handleSearchChange={handleSearchChange} 
         handleClearSearch={handleClearSearch} 
@@ -157,7 +155,7 @@ function handleClearSearch () {
         onTagClick={onTagClick}
         handleTagReset={handleTagReset} 
         />
-          <NoteGrid notes={filteredNotes} onNoteClick={toggleDisplayedNote} id={displayedNote.id} />
+          <NoteGrid notes={filteredNotes} onNoteClick={toggleDisplayedNote} id={displayedNote.id} handleNewButtonClick={handleNewButtonClick} />
         </Route>
         <Route path="/edit/:id">
           <NoteEditor note={editNote} handleEditSubmit={handleEditSubmit} />
