@@ -11,7 +11,7 @@ function NoteViewer({ onEditButtonClick, onDeleteButtonClick }) {
   
   
   useEffect(()=>{
-    fetch(`http://localhost:3000/notes/${id}`)
+    fetch(`https://json-server-heroku-hosting-2.herokuapp.com/notes/${id}`)
     .then(r=>r.json())
     .then(data=> setNote(data))
   }, [id])
