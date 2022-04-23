@@ -58,7 +58,7 @@ function NoteContainer () {
 }, []);
 
 function handleNewButtonClick () {
-  fetch('http://localhost:3000/notes', {
+  fetch('https://json-server-heroku-hosting-2.herokuapp.com/notes', {
     method:"POST",
     headers:{
       "Content-Type":"application/json",
@@ -76,7 +76,7 @@ function handleNewButtonClick () {
 }
 
 function handleEditSubmit (editedNoteObj){
-  fetch(`http://localhost:3000/notes/${editedNoteObj.id}`, {
+  fetch(`https://json-server-heroku-hosting-2.herokuapp.com/notes/${editedNoteObj.id}`, {
     method:"PATCH",
     headers:{
       "Content-Type":"application/json",
@@ -99,7 +99,7 @@ function handleEditSubmit (editedNoteObj){
 };
 
 function onDeleteButtonClick (item) {
-  fetch(`http://localhost:3000/notes/${item.id}`, {
+  fetch(`https://json-server-heroku-hosting-2.herokuapp.com/notes/${item.id}`, {
     method:"DELETE",
   })
   .then(res=>res.json())

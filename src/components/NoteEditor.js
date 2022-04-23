@@ -8,7 +8,7 @@ function NoteEditor({ note, handleEditSubmit }) {
   const { id } = useParams();
 
   useEffect(()=>{
-    fetch(`http://localhost:3000/notes/${id}`)
+    fetch(`https://json-server-heroku-hosting-2.herokuapp.com/notes/${id}`)
     .then(r=>r.json())
     .then(data=> setEditedNoteContent(data))
   }, [id])
