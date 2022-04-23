@@ -52,7 +52,7 @@ function NoteContainer () {
   //CRUD Functions 
 
   useEffect(()=>{
-    fetch('http://localhost:3000/notes')
+    fetch('https://json-server-heroku-hosting-2.herokuapp.com/notes')
   .then((res)=>res.json())
   .then((data)=>setNotes(data))
 }, []);
