@@ -1,3 +1,4 @@
+import LoadingSpinner from "./LoadingSpinner";
 import React from "react";
 import { v4 as uuidv4 } from 'uuid';
 import { useState } from 'react';
@@ -11,7 +12,7 @@ function NoteViewer({ onEditButtonClick, onDeleteButtonClick }) {
   
   
   useEffect(()=>{
-    fetch(`https://json-server-heroku-hosting-2.herokuapp.com/notes/${id}`)
+    fetch(`http://localhost:3000/notes/${id}`)
     .then(r=>r.json())
     .then(data=> setNote(data))
   }, [id])
@@ -30,13 +31,16 @@ function NoteViewer({ onEditButtonClick, onDeleteButtonClick }) {
       </ul>
       </div>:null}
       <h2>{note.title}</h2>
-      <p>{note.body}</p>
+      <div className="sub-notes">{note.subNotes.map(sub=>{return <li>{sub}</li>})}</div>
       <Link to={`/edit/${id}`} onClick={()=>onEditButtonClick(note)}>Edit</Link>
       <button onClick={()=>onDeleteButtonClick(note)}>Delete</button>
       <Link id="x" to={"/"}>View All Notes</Link>
      </div>
   );} else {
-    return <h1>Loading</h1>
+    return (
+    <h1>Loading<LoadingSpinner />
+    </h1>
+    )
   }
 }
 

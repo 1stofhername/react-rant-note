@@ -2,8 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 function NoteItem({ note, onNoteClick }) {
-  const { body, title, id } = note
-  const caption = (body.length > 20) ? note.body.substr(0,20)+"...": note.body
+  const { subNotes, title, id } = note
+  const caption = (subNotes[0].length > 20) ? subNotes[0].substr(0,20)+"...": subNotes[0]
   
 
   return (

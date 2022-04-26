@@ -52,13 +52,13 @@ function NoteContainer () {
   //CRUD Functions 
 
   useEffect(()=>{
-    fetch('https://json-server-heroku-hosting-2.herokuapp.com/notes')
+    fetch('http://localhost:3000/notes')
   .then((res)=>res.json())
   .then((data)=>setNotes(data))
 }, []);
 
 function handleNewButtonClick () {
-  fetch('https://json-server-heroku-hosting-2.herokuapp.com/notes', {
+  fetch('http://localhost:3000/notes', {
     method:"POST",
     headers:{
       "Content-Type":"application/json",
@@ -76,7 +76,7 @@ function handleNewButtonClick () {
 }
 
 function handleEditSubmit (editedNoteObj){
-  fetch(`https://json-server-heroku-hosting-2.herokuapp.com/notes/${editedNoteObj.id}`, {
+  fetch(`http://localhost:3000/notes/${editedNoteObj.id}`, {
     method:"PATCH",
     headers:{
       "Content-Type":"application/json",
@@ -99,7 +99,7 @@ function handleEditSubmit (editedNoteObj){
 };
 
 function onDeleteButtonClick (item) {
-  fetch(`https://json-server-heroku-hosting-2.herokuapp.com/notes/${item.id}`, {
+  fetch(`http://localhost:3000/notes/${item.id}`, {
     method:"DELETE",
   })
   .then(res=>res.json())
