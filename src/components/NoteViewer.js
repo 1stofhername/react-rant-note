@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
+import LoadingSpinner from "./LoadingSpinner";
 
 function NoteViewer({ onEditButtonClick, onDeleteButtonClick }) {
   const [note, setNote] = useState(null);
@@ -36,7 +37,7 @@ function NoteViewer({ onEditButtonClick, onDeleteButtonClick }) {
       <Link id="x" to={"/"}>View All Notes</Link>
      </div>
   );} else {
-    return <h1>Loading</h1>
+    return <h1><LoadingSpinner /></h1>
   }
 }
 

@@ -72,7 +72,8 @@ function handleNewButtonClick () {
     })
   })
   .then(res=>res.json())
-  .then(data=>{let newNotes= [...notes, data]; setNotes(newNotes);setDisplayedNote(data)})
+  .then(data=>{let newNotes= [...notes, data]; setNotes(newNotes);setDisplayedNote(data)
+  .then(<NoteViewer />)})
 }
 
 function handleEditSubmit (editedNoteObj){
